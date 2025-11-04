@@ -33,13 +33,19 @@ def date_of_birth(request):
         else:
             return render(
                 request,
-                "date_of_birth.jinja",
-                { "form": form },
+                "question_form.jinja",
+                {
+                    "form": form,
+                    "back_link_url": reverse("questions:have_you_ever_smoked")
+                },
                 status=422
             )
 
     return render(
         request,
-        "date_of_birth.jinja",
-        { "form": DateOfBirthForm(participant=request.participant) }
+        "question_form.jinja",
+        {
+            "form": DateOfBirthForm(participant=request.participant),
+            "back_link_url": reverse("questions:have_you_ever_smoked")
+        }
     )

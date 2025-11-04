@@ -87,20 +87,27 @@ class TestQuestionnaire(StaticLiveServerTestCase):
 
         expect(page).to_have_url(f"{self.live_server_url}/ethnicity")
         expect_back_link_to_have_url(page, "/gender")
-        page.click("text=Continue")
-
-        expect(page).to_have_url(f"{self.live_server_url}/education")
-        expect_back_link_to_have_url(page, "/ethnicity")
-        page.click("text=Continue")
-
-        expect(page).to_have_url(f"{self.live_server_url}/respiratory-conditions")
-        expect_back_link_to_have_url(page, "/education")
-        page.click("text=Continue")
-
-        expect(page).to_have_url(f"{self.live_server_url}/responses")
-        expect_back_link_to_have_url(page, "/cigarette-smoking")
-
         fill_in_and_submit_ethnicity(page, "White")
+
+        # expect(page).to_have_url(f"{self.live_server_url}/education")
+        # expect_back_link_to_have_url(page, "/ethnicity")
+        # page.click("text=Continue")
+
+        # expect(page).to_have_url(f"{self.live_server_url}/respiratory-conditions")
+        # expect_back_link_to_have_url(page, "/education")
+        # page.click("text=Continue")
+
+        # expect(page).to_have_url(f"{self.live_server_url}/asbestos-exposure")
+        # expect_back_link_to_have_url(page, "/respiratory-conditions")
+        # page.click("text=Continue")
+
+        # expect(page).to_have_url(f"{self.live_server_url}/cancer-diagnosis")
+        # expect_back_link_to_have_url(page, "/asbestos-exposure")
+        # page.click("text=Continue")
+
+        # expect(page).to_have_url(f"{self.live_server_url}/family-history-lung-cancer")
+        # expect_back_link_to_have_url(page, "/cancer-diagnosis")
+        # page.click("text=Continue")
 
         expect(page).to_have_url(f"{self.live_server_url}/responses")
         expect_back_link_to_have_url(page, "/ethnicity")
