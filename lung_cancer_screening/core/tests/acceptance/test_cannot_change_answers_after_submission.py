@@ -46,7 +46,11 @@ class TestQuestionnaire(StaticLiveServerTestCase):
         fill_in_and_submit_sex_at_birth(page, "Male")
         fill_in_and_submit_gender(page, "Male")
         fill_in_and_submit_ethnicity(page, "White")
-
+        page.click("text=Continue")
+        page.click("text=Continue")
+        page.click("text=Continue")
+        page.click("text=Continue")
+        page.click("text=Continue")
         page.click("text=Submit")
 
         page.goto(f"{self.live_server_url}/start")

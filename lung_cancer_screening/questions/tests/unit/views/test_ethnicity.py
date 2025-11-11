@@ -76,7 +76,7 @@ class TestEthnicity(TestCase):
             self.valid_params
         )
 
-        self.assertRedirects(response, reverse("questions:responses"))
+        self.assertRedirects(response, reverse("questions:education"))
 
     def test_post_responds_with_422_if_the_date_response_fails_to_create(self):
         response = self.client.post(
